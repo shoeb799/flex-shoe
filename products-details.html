@@ -10,9 +10,16 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
         <!--added a cdn link by searching font awesome4 cdn and getting this link from https://www.bootstrapcdn.com/fontawesome/ this url*/-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        <script>
+            function getProductDetails() {
+                const params = new URLSearchParams(window.location.search);
+                document.getElementById("product-name").textContent = params.get("name");
+                document.getElementById("product-price").textContent = "₹" + params.get("price");
+                document.getElementById("productImg").src = params.get("image");
+            }
+        </script>
     </head>
-    <body>
+    <body onload="getProductDetails()">
         <!--<div class ="header">-->
         <div class="container">
             <div class="navbar">
@@ -44,10 +51,10 @@
             <!--<h2 class="title" >Featured Products</h2>-->
             <div class="row">
                     <div class="col-2">
-                        <img src="images/product-11.jpg" width="100%" id="productImg">
+                        <img  width="100%" id="productImg">
                         
                         
-                        <div class="small-img-row">
+                        <!-- <div class="small-img-row">
                             <div class="small-img-col">
                                 <img src="images/product-11.jpg" width="100%" class="small-img">
                             </div>
@@ -60,13 +67,13 @@
                              <div class="small-img-col">
                                 <img src="images/product-5.jpg" width="100%" class="small-img">
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 
                     <div class="col-2">
                         <p>Home / Shoes</p>
-                        <h1>Downshifter Sports Shoes</h1>
-                        <h4>₹1299</h4>
+                        <h1 id="product-name"></h1>
+                        <h4 id="product-price"></h4>
                         <select>
                             <option>Select Size</option>
                             <option>6<!--Small (s)--></option>
@@ -95,57 +102,65 @@
                 
         <!----------------------------------products------------------------------------->
         <div class="small-container">
-             <div class="row">
-                     <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-11.jpg"></a>
-                        <a href="products-details.html"><h4>Downshifter Sports Shoes</h4></a>
-                        <div class="rating">
-                            
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-half-o" ></i>
-                            <i class="fa fa-star-o" ></i>
-                        </div>
-                        <p>₹1299</p>
+            <div class="row">
+                <div class="col-4">
+                    <a href="products-details.html?name=Downshifter Sports Shoes&image=images/product-11.jpg&price=1299">
+                        <img src="images/product-11.jpg">
+                    </a>                        
+                    <a href="products-details.html?name=Downshifter Sports Shoes&image=images/product-11.jpg&price=1299"><h4>Downshifter Sports Shoes</h4></a>
+                    <div class="rating">
+                        
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star-half-o" ></i>
+                        <i class="fa fa-star-o" ></i>
                     </div>
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-2.jpg"></a>
-                        <h4>Lace-Up Running Shoes</h4>
-                        <div class="rating">
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-half-o" ></i>
-                        </div>
-                        <p>₹350.00</p>
-                    </div>
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-3.jpg"></a>
-                        <h4>Lace Fastening Shoes</h4>
-                        <div class="rating">
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-o" ></i>
-                        </div>
-                        <p>₹150.00</p>
-                    </div>
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-10.jpg"></a>
-                        <h4>Flat Lace-Fastening Shoes</h4>
-                        <div class="rating">
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-o" ></i>
-                            <i class="fa fa-star-o" ></i>
-                        </div>
-                        <p>₹480.00</p>
-                    </div>  
+                    <p>₹1299</p>
                 </div>
+                <div class="col-4">
+                    <a href="products-details.html?name=Lace-Up Running Shoes&image=images/product-2.jpg&price=350.00">
+                        <img src="images/product-2.jpg">
+                    </a> 
+                    <h4>Lace-Up Running Shoes</h4>
+                    <div class="rating">
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star-half-o" ></i>
+                    </div>
+                    <p>₹350.00</p>
+                </div>
+                <div class="col-4">
+                    <a href="products-details.html?name=Lace Fastening Shoes&image=images/product-3.jpg&price=250.00">
+                        <img src="images/product-3.jpg">
+                    </a> 
+                    <h4>Lace Fastening Shoes</h4>
+                    <div class="rating">
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star-o" ></i>
+                    </div>
+                    <p>₹250.00</p>
+                </div>
+                <div class="col-4">
+                    <a href="products-details.html?name=Flat Lace-Fastening Shoes&image=images/product-10.jpg&price=480.00">
+                        <img src="images/product-10.jpg">
+                    </a> 
+                    <h4>Flat Lace-Fastening Shoes</h4>
+                    <div class="rating">
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star-o" ></i>
+                        <i class="fa fa-star-o" ></i>
+                    </div>
+                    <p>₹480.00</p>
+                </div>  
+            </div>
         </div>
 
         <!----------------------------------footer------------------------------------->
@@ -210,7 +225,7 @@
         
         <!-----------------------js for product gallery-------------------->
         
-        <script>
+        <!-- <script>
             var productImg=document.getElementById("productImg");
             var smallImg=document.getElementsByClassName("small-img");
             
@@ -228,6 +243,6 @@
             }
             
             
-        </script>
+        </script> -->
     </body>
 </html>
