@@ -1,45 +1,76 @@
 <!DOCTYPE html>
 <html>
-    
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <title>All Products - Flexshoe</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-        <!--added a cdn link by searching font awesome4 cdn and getting this link from https://www.bootstrapcdn.com/fontawesome/ this url*/-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    </head>
-    <body>
-        <!--<div class ="header">-->
-        <div class="container">
-            <div class="navbar">
-                <div class="logo">
-                    <a href="index.html"><img src="images/logo_shoe.png" width="125px"></a>
-                </div>
-                <nav>
-                    <ul id="MenuItems">
-                        <li><a href="index.html">Home</a></li>
-                         <li><a href="products.html">Products</a></li>
-                         <li><a href="">About</a></li>
-                         <li><a href="">Contact</a></li>
-                         <li><a href="account.html">Account</a></li>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>All Products - Flexshoe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!--added a cdn link by searching font awesome4 cdn and getting this link from https://www.bootstrapcdn.com/fontawesome/ this url*/-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    dialog {
+            left: 40%;
+            top: 20%;
+            position: absolute;
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: none;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        } 
+</style>
+</head>
 
-                    </ul>
-                </nav>
-                <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
-                <img src="images/menu.png" class="menu-icon" onClick="menutoggle()" >
+<body>
+    <!--<div class ="header">-->
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo_shoe.png" width="125px"></a>
             </div>
-           
-        </div>
-    <!--</div>-->
-    
-        
-        <!------------------------------ cart items details------------------------------>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li id="account-link"></li>
+                    <li id="signout-link" style="display: none;"><a href="#" onclick="signOut()">Sign Out</a></li>
 
-        <div class="small-container cart-page">
+                </ul>
+            </nav>
+            <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
+            <img src="images/menu.png" class="menu-icon" onClick="menutoggle()">
+        </div>
+
+    </div>
+    <!--</div>-->
+
+
+    <!------------------------------ cart items details------------------------------>
+
+    <div class="small-container cart-page">
+        <dialog id="errorDialog">
+            <p id="errorMessage">Error message here</p>
+            <button onclick="closeDialog()">Close</button>
+        </dialog>
         <table>
             <tr>
                 <th>Product</th>
@@ -88,41 +119,41 @@
                 <td><input type="number" vlaue="1" min="1"></td>
                 <td>₹1199</td>
             </tr>
-            </table>
-            
-            <div class="total-price">
-                <table>
-                    <tr>
-                        <td>Subtotal</td>
-                        <td>₹3597.00</td>
-                    </tr>
-                    <tr>
-                        <td>Tax</td>
-                        <td>₹35.00</td>
-                    </tr>
-                    <tr>
-                        <td>Total</td>
-                        <td>₹3632.00</td>
-                    </tr>
-                    
-                </table>
-   
-            </div>
-            <div class="btn-wrap">
-                <a href="account.html">
-                    <div class="btn">Checkout</div>
-                </a>
+        </table>
 
-            </div>
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>₹3597.00</td>
+                </tr>
+                <tr>
+                    <td>Tax</td>
+                    <td>₹35.00</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>₹3632.00</td>
+                </tr>
+
+            </table>
 
         </div>
-        
-        
-       
-        <!----------------------------------footer------------------------------------->
-        <div class ="footer">
+        <div class="btn-wrap">
+            <a href="account.html">
+                <div class="btn">Checkout</div>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!----------------------------------footer------------------------------------->
+    <div class="footer">
         <div class="container">
-            
+
             <div class="row">
                 <div class="footer-col-1">
                     <h3>Download Our App</h3>
@@ -134,50 +165,98 @@
                 </div>
                 <div class="footer-col-2">
                     <img src="images/logo-white.png">
-                    <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+                    <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.
+                    </p>
                 </div>
                 <div class="footer-col-3">
                     <h3>Useful Links</h3>
-                   <ul>
-                       <li>Coupons</li>
-                       <li>Blog Post</li>
-                       <li>Return Policy</li>
-                       <li>Join Affiliate</li>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
                     </ul>
                 </div>
                 <div class="footer-col-4">
                     <h3>Follow us</h3>
-                   <ul>
-                       <li>Facebook</li>
-                       <li>Twitter</li>
-                       <li>Instagram</li>
-                       <li>Youtube</li>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>Youtube</li>
                     </ul>
                 </div>
-                
+
             </div>
-            
+
             <hr><!--horizontal line-->
             <p class="copyright">Copyright 2025 - Shoeb</p>
-            
+
         </div>
     </div>
-        
-        
-        <!-----------------------------------js for toggle menu-------------------------------------->
-        <script>
-            var menuItems=document.getElementById("MenuItems");
-            
-            MenuItems.style.maxHeight="0px";
-            function menutoggle(){
-                if(MenuItems.style.maxHeight == "0px"){
-                    MenuItems.style.maxHeight="200px";
-                }
-                else{
-                    MenuItems.style.maxHeight="0px";
+
+
+    <!-----------------------------------js for toggle menu-------------------------------------->
+    <script>
+                function showDialog(message) {
+            document.getElementById("errorMessage").textContent = message;
+            document.getElementById("errorDialog").showModal();
+        }
+
+        function closeDialog() {
+            document.getElementById("errorDialog").close();
+        }
+        function getCookie(name) {
+            const cookies = document.cookie.split('; ');
+            for (let i = 0; i < cookies.length; i++) {
+                const parts = cookies[i].split('=');
+                if (parts[0] === name) {
+                    return decodeURIComponent(parts[1]);
                 }
             }
-        </script>
-     
-    </body>
+            return null;
+        }
+
+function deleteCookie(name) {
+    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+deleteCookie("token");
+
+        function updateNavbar() {
+            const username = getCookie("username");
+            const accountLink = document.getElementById("account-link");
+            const signoutLink = document.getElementById("signout-link");
+
+            if (username) {
+                accountLink.innerHTML = `<a href="account.html">👤 ${username}</a>`;
+                signoutLink.style.display = "block";
+            } else {
+                accountLink.innerHTML = `<a href="account.html">Sign In</a>`;
+                signoutLink.style.display = "none";
+            }
+        }
+
+        function signOut() {
+            deleteCookie("username");
+            updateNavbar();
+            window.location.href = "account.html";
+        }
+
+        updateNavbar();
+        var menuItems = document.getElementById("MenuItems");
+
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            }
+            else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+    </script>
+
+</body>
+
 </html>
